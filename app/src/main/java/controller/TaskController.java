@@ -50,10 +50,11 @@ public class TaskController {
                     
                     throw new RuntimeException("Erro ao salvar a tarefa "+ ex.getMessage(), ex);
                     
+                } finally   {
+                    ConnectionFactory.closeConnection(connection, statement);
                 }
                 
             }
-            
             
             public void update(Task task) {
                     
