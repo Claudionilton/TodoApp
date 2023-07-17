@@ -3,10 +3,17 @@
  */
 package TodoApp;
 
+import java.sql.Connection;
+import util.ConnectionFactory;
+
 public class Main {
   
     public static void main(String[] args){
-        System.out.println("Olá mundo");
+
+            Connection c = ConnectionFactory.getConnection();
+            
+            ConnectionFactory.closeConnection(c);
+        
     }
     
 }
