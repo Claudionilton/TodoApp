@@ -7,7 +7,9 @@ package controller;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import model.Task;
 import util.ConnectionFactory;
@@ -109,6 +111,47 @@ public class TaskController {
     }
 
     public List<Task> getAll(int idProject) {
+        
+        String sql = "SELECT * FROM tasks WHERE idProject = ?";
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        
+        //Lista de tarefas que é devolvida quando acontecer a chamada do metodo
+        List<Task> tasks = new ArrayList<Task>();
+        
+        
+        try {
+            connection = ConnectionFactory.getConnection();
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, idProject);
+            resultSet = statement.executeQuery();
+            
+            while (resultSet.next()) {
+                
+                Task task = new Task();
+                task.setId(resultSet.getInt("id"));
+                task.setIdProject(resultSet.getInt("idProject"));
+                task.setName(resultSet.getString("name"));
+                task.setDescription(resultSet.getString("description"));
+                task.setNotes(resultSet.getString("notes"));
+                task.setIsCompleted(resultSet.getBoolean("completed"));
+                task.setDeadline(resultSet.getDate("deadline"));
+                task.setCreatedAt(resultSet.getDate("createdAt"));
+                task.setUpdatedAt(resultSet.getDate("updatedAt"));
+                tasks.add(task);
+            }
+            
+            
+            
+        } catch (Exception ex) {
+            throw new RuntimeException("Erro ao deletar a tarefa" + ex.getMessage(), ex);
+        } finally {
+            ConnectionFactory.closeConnection(connection, statement, resultSet);
+        }
+        
+        
         return null;
     }
 
