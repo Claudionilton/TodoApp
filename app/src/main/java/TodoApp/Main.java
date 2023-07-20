@@ -3,17 +3,61 @@
  */
 package TodoApp;
 
-import java.sql.Connection;
-import util.ConnectionFactory;
+//import controller.ProjectController;
+//import controller.TaskController;
+//import java.util.Date;
+//
+//import java.util.HashSet;
+//import java.util.List;
+//import java.util.Set;
+////import java.util.List;
+//import model.Project;
+//import model.Task;
 
 public class Main {
   
     public static void main(String[] args){
+//
+//            ProjectController projectController = new ProjectController();
+//            TaskController taskController = new TaskController();
+//            
+//            Project project = new Project();
+//            project.setName("Sistema Açai");
+//            project.setDescription("description 001");
+//            projectController.save(project);
+           // ProjectController projectController = new ProjectController();
 
-            Connection c = ConnectionFactory.getConnection();
+            //Project project = new Project();
+            //project.setId(1);
+            //project.setName("Novo nome do projeto");
+            //project.setDescription("description");
             
-            ConnectionFactory.closeConnection(c);
-        
+            //projectController.update(project);
+            
+            //projectController.removeById(1);
+            
+//            List<Project> projects = projectController.getAll();
+//            System.out.println("Total de projetos = " + projects.size());
+//            
+//            
+//            Task task = new Task();
+//            task.setIdProject(2);
+//            task.setName("criar tela principal do app");
+//            task.setDescription("description");
+//            task.setNotes("Sem notas");
+//            System.out.println("Data de deadline antes de ser definida: " + task.getDeadline());
+//            task.setIsCompleted(false);
+//            task.setDeadline(new Date());
+//            System.out.println("Data de deadline após ser definida: " + task.getDeadline());
+//            taskController.save(task);
+//            
+////           task.setName("Alterar outras coisas");
+////           taskController.update(task);
+//           List<Task> tasks = taskController.getAll(2);
+//           System.out.println("Total de tarefas = " + tasks.size());
+//           System.out.println(task.getUpdatedAt());
+            
+            
     }
     
 }
