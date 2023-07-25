@@ -39,13 +39,30 @@ public class TaskTableModel extends AbstractTableModel {
         return columnIndex == 3;
     }
 
+    //@Override
+//    public Class<?> getColumnClass(int columnIndex) {
+//        if (tasks.isEmpty()) {
+//            return Object.class;
+//        }
+//        return this.getValueAt(0, columnIndex).getClass();
+//    }
+
     @Override
-    public Class<?> getColumnClass(int columnIndex) {
-        if (tasks.isEmpty()) {
+public Class<?> getColumnClass(int columnIndex) {
+    switch (columnIndex) {
+        case 0:
+        case 1:
+        case 2:
+            return String.class;
+        case 3:
+            return Boolean.class; // or Boolean.TYPE if isIsCompleted() returns a boolean primitive
+        case 4:
+        case 5:
+            return String.class;
+        default:
             return Object.class;
-        }
-        return this.getValueAt(0, columnIndex).getClass();
     }
+}
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {

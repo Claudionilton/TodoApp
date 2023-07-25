@@ -3,62 +3,27 @@
  */
 package main;
 
-///*import controller.ProjectController;
-//import controller.TaskController;
-//import java.util.Date;
-//
-//import java.util.HashSet;
-//import java.util.List;
-//import java.util.Set;
-////import java.util.List;
-//import model.Project;
-//import model.Task;*/
+import controller.TaskController;
+import java.util.Date;
+import model.Task;
+
 
 public class Main {
-  
-    public static void main(String[] args){
-//
-//            ProjectController projectController = new ProjectController();
-//            TaskController taskController = new TaskController();
-//            
 
-//            Project project = new Project();
-//            project.setName("Sistema Açai");
-//            project.setDescription("description 001");
-//            projectController.save(project);
-           // ProjectController projectController = new ProjectController();
-
-            //Project project = new Project();
-            //project.setId(1);
-            //project.setName("Novo nome do projeto");
-            //project.setDescription("description");
-            
-            //projectController.update(project);
-            
-            //projectController.removeById(1);
-            
-//            List<Project> projects = projectController.getAll();
-//            System.out.println("Total de projetos = " + projects.size());
-//            
-//            
-//            Task task = new Task();
-//            task.setIdProject(2);
-//            task.setName("criar tela principal do app");
-//            task.setDescription("description");
-//            task.setNotes("Sem notas");
-//            System.out.println("Data de deadline antes de ser definida: " + task.getDeadline());
-//            task.setIsCompleted(false);
-//            task.setDeadline(new Date());
-//            System.out.println("Data de deadline após ser definida: " + task.getDeadline());
-//            taskController.save(task);
-//            
-////           task.setName("Alterar outras coisas");
-////           taskController.update(task);
-//           List<Task> tasks = taskController.getAll(2);
-//           System.out.println("Total de tarefas = " + tasks.size());
-//           System.out.println(task.getUpdatedAt());
-            
-            
+    public static void main(String[] args) {
+       
+      TaskController taskController = new TaskController();
+      
+      Task task = new Task();
+      task.setIdProject(1);
+      task.setName("Criar task nesse projeto");
+      task.setNotes("Sem notas");
+      task.setIsCompleted(false);
+      task.setDeadline(new Date());
+      
+      taskController.save(task);
+      
+      
     }
-    
+
 }
